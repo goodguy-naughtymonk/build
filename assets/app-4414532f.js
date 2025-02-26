@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() {
     
     const title = document.createElement('title');
-    title.textContent = 'TEST HOST HEADER INJECTION';
+    title.textContent = 'Not a Fake Webpage';
 
     document.body.innerHTML = `
         <div class="container">
