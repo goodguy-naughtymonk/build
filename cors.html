@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XML Request Example</title>
+</head>
+<body>
+    <h1>XML Request Example</h1>
+    <button id="fetchData">Fetch Data</button>
+    <pre id="response"></pre>
+
+    <script>
+        document.getElementById('fetchData').addEventListener('click', function() {
+            const xhr = new XMLHttpRequest();
+            const url = 'https://adminhalamanputih.prodia.co.id/api/cms/master_data/api/cms-master-data/user/199e3865-fb6c-42c7-981f-0ad44fa37aa3';
+            const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiQmFsbGVyaW5hIENhcHB1Y2NpbmEiLCJzdWIiOiIzMmE2NDdlYy0yMjRhLTQ4MmItOTQyOS1iNTQzNDQ2ZWUxMjkiLCJjb250cmFjdElkIjoiOTk5MTE5IiwiaWF0IjoxNzQ2NTE0Mzg1LCJleHAiOjE3NDY2MDA3ODUsImlzcyI6InByb2RpYS13aGl0ZWxhYmVsIn0.hAGYG4kYbafOri7T5_uhGV7OwmAaFgAIrlnE2cDOa2g';
+
+            xhr.open('GET', url, true);
+            xhr.setRequestHeader('Authorization', 'Bearer ' + token);
+            xhr.setRequestHeader('Accept', 'application/json');
+            xhr.setRequestHeader('Accept-Language', 'ID');
+            xhr.setRequestHeader('Accept-Encoding', 'gzip, deflate, br');
+            xhr.setRequestHeader('Cache-Control', 'no-cache');
+            xhr.setRequestHeader('If-None-Match', 'W/"198-KG1GEIfYnQaZ0KZBLt/aKmt7T94"');
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    document.getElementById('response').textContent = xhr.responseText;
+                }
+            };
+            xhr.send();
+        });
+    </script>
+</body>
+</html>
